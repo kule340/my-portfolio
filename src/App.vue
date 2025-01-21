@@ -51,7 +51,7 @@ html, body {
 
 /* Main Section Styling */
 .main-section {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.898);
   color: white;
   width: 100%; /* Full width without causing horizontal overflow */
   min-height: 100vh; /* Full height of the viewport */
@@ -68,8 +68,8 @@ html, body {
 }
 
 .profile-photo {
-  width: 120px;
-  height: 120px;
+  width: 225px;
+  height: 225px;
   border-radius: 50%;
   margin: 20px 0;
 }
