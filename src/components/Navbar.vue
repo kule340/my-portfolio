@@ -25,23 +25,19 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap'); /* Updated weights */
 
 .navbar {
-  background-color: #ffffffdd;
+  background-color: #e3e3e0dd;
   display: flex;
   align-items: center;
-  justify-content: center; /* Centers the nav links */
+  justify-content: space-between; /* Space between logo and nav links */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   width: 100%;
-  height: 17%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  height: 150px; /* Increased vertical length */
   z-index: 1000;
+  padding: 0 400px; /* Adjusted padding to center the content horizontally */
+  box-sizing: border-box; /* Ensure padding is included in the height/width */
 }
 
 .logo-container {
-  position: absolute; /* Position logo independently */
-  left: 500px; /* Moves the logo container closer to the center */
   display: flex; /* Use flexbox to align logo and name horizontally */
   align-items: center; /* Align logo and name vertically */
   gap: 15px; /* Add spacing between the logo and the name */
@@ -74,8 +70,7 @@ export default {
   margin: 0;
   display: flex;
   gap: 40px; /* Adjust spacing between links */
-  justify-content: flex-start; /* Align links horizontally */
-  margin-left: 500px; /* Moves the links further to the right */
+  margin-right: 200px;
 }
 
 .nav-links a {

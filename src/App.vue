@@ -35,6 +35,25 @@
         </button>
       </div>
     </div>
+        <!-- Contact Section -->
+      <div class="contact-section">
+        <div class="contact-content">
+        <h2>You can also find me here</h2>
+        <div class="links">
+          <a href="https://twitter.com" target="_blank">Twitter</a>
+          <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+          <a href="https://instagram.com" target="_blank">Instagram</a>
+          <a href="https://udemy.com" target="_blank">Udemy</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-section">
+      <p>©All rights reserved to the MK digital solutions</p>
+      <div class="footer-links">
+        <a href="#">Impressum</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -72,12 +91,12 @@ html, body {
   background-color: rgba(0, 0, 0, 0.898);
   color: white;
   width: 100%; /* Full width without causing horizontal overflow */
-  min-height: 100vh; /* Full height of the viewport */
+  height: 50rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px 20px; /* Inner spacing */
+  padding-bottom: 50px;
   box-sizing: border-box; /* Includes padding in width/height calculations */
 }
 
@@ -138,5 +157,101 @@ html, body {
 
 .btn:hover span {
   color: black; /* Black text on hover */
+}
+
+/* Contact Section */
+.contact-section {
+  background-color: white;
+  color: black;
+  padding: 50px 20px; /* Increased vertical padding */
+  text-align: center;
+}
+
+.contact-content {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  height: 240px;
+}
+
+.contact-content h2 {
+  font-size: 26px;
+  margin: 0;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px; /* Adjust spacing between links */
+}
+
+.links a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 18px; /* Increased font size for visibility */
+  position: relative; /* Necessary for underline animation */
+  transition: color 0.3s ease;
+}
+
+.links a::before {
+  content: '';
+  position: absolute;
+  bottom: -5px; /* Positioning for the underline */
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: black; /* Underline color */
+  transition: width 0.3s ease; /* Smooth underline animation */
+}
+
+.links a:hover::before {
+  width: 100%; /* Underline expands on hover */
+}
+
+.footer-section {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-links {
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  position: relative; /* Necessary for underline animation */
+  transition: color 0.3s ease;
+}
+
+.footer-links a::before {
+  content: '';
+  position: absolute;
+  bottom: -5px; /* Positioning for the underline */
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: white; /* Underline color */
+  transition: width 0.3s ease; /* Smooth underline animation */
+}
+
+.footer-links a:hover::before {
+  width: 100%; /* Underline expands on hover */
 }
 </style>
