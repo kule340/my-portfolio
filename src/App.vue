@@ -1,57 +1,63 @@
 <template>
   <div id="app">
-    <!-- Navbar -->
+    <!-- Navbar remains visible on all pages -->
     <NavbarComponent />
 
-    <!-- Main Section -->
-    <div class="main-section">
-      <div class="profile">
-        <img src="./assets/novaslikaprofila.jpg" alt="Profile" class="profile-photo" />
-        <h1>Hi, I'm Marko Kučko</h1>
-        <p>I'm a professional web developer & course instructor.</p>
-        <p>Connect with me through my courses, LinkedIn, or Instagram.</p>
-      </div>
-      <div class="buttons">
-        <button class="btn">
-          <!-- SVG for Online Courses -->
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"></path>
-          </svg>
-          <span>Online Courses</span>
-        </button>
-          <!-- SVG for LinkedIn Profile -->
-        <button class="btn">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 8.25a3.75 3.75 0 0 1 3.75 3.75v7.5a3.75 3.75 0 0 1-3.75 3.75h-9a3.75 3.75 0 0 1-3.75-3.75v-7.5a3.75 3.75 0 0 1 3.75-3.75h9zM6 8.25v7.5M9 6h6M9 6a3 3 0 0 1-3 3M9 6a3 3 0 0 0-3 3"></path>
-          </svg>
-          <span>LinkedIn Profile</span>
-        </button>
-        <!-- SVG for Instagram Profile -->
-        <button class="btn">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 3.75h9A3.75 3.75 0 0 1 21 7.5v9a3.75 3.75 0 0 1-3.75 3.75h-9A3.75 3.75 0 0 1 3.75 16.5v-9A3.75 3.75 0 0 1 7.5 3.75zm9 0V3m-9 0v.75m3.75 12a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5z"></path>
-          </svg>
-          <span>Instagram Profile</span>
-        </button>
-      </div>
-    </div>
-        <!-- Contact Section -->
-      <div class="contact-section">
-        <div class="contact-content">
-        <h2>You can also find me here</h2>
-        <div class="links">
-          <a href="https://twitter.com" target="_blank">Twitter</a>
-          <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-          <a href="https://instagram.com" target="_blank">Instagram</a>
-          <a href="https://udemy.com" target="_blank">Udemy</a>
+    <!-- Render router-view (page content) -->
+    <router-view></router-view>
+
+    <!-- Hide this content when on /courses -->
+    <div v-if="$route.path !== '/courses'">
+      <!-- Main Section -->
+      <div class="main-section">
+        <div class="profile">
+          <img src="./assets/original.jpeg" alt="Profile" class="profile-photo" />
+          <h1>Hi, I'm Marko Kučko</h1>
+          <p>I'm a professional web developer & course instructor.</p>
+          <p>Connect with me through my courses, LinkedIn, or Instagram.</p>
+        </div>
+        <div class="buttons">
+          <button class="btn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"></path>
+            </svg>
+            <span>Online Courses</span>
+          </button>
+          <button class="btn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 8.25a3.75 3.75 0 0 1 3.75 3.75v7.5a3.75 3.75 0 0 1-3.75 3.75h-9a3.75 3.75 0 0 1-3.75-3.75v-7.5a3.75 3.75 0 0 1 3.75-3.75h9zM6 8.25v7.5M9 6h6M9 6a3 3 0 0 1-3 3M9 6a3 3 0 0 0-3 3"></path>
+            </svg>
+            <span>LinkedIn Profile</span>
+          </button>
+          <button class="btn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 3.75h9A3.75 3.75 0 0 1 21 7.5v9a3.75 3.75 0 0 1-3.75 3.75h-9A3.75 3.75 0 0 1 3.75 16.5v-9A3.75 3.75 0 0 1 7.5 3.75zm9 0V3m-9 0v.75m3.75 12a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5z"></path>
+            </svg>
+            <span>Instagram Profile</span>
+          </button>
         </div>
       </div>
-    </div>
-    <div class="footer-section">
-      <p>©All rights reserved to the MK digital solutions</p>
-      <div class="footer-links">
-        <a href="#">Impressum</a>
-        <a href="#">Privacy Policy</a>
+
+      <!-- Contact Section -->
+      <div class="contact-section">
+        <div class="contact-content">
+          <h2>You can also find me here</h2>
+          <div class="links">
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="https://udemy.com" target="_blank">Udemy</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Section -->
+      <div class="footer-section">
+        <p>© All rights reserved to MK Digital Solutions</p>
+        <div class="footer-links">
+          <a href="#">Impressum</a>
+          <a href="#">Privacy Policy</a>
+        </div>
       </div>
     </div>
   </div>
