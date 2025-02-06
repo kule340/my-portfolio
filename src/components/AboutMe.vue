@@ -13,21 +13,16 @@
       <p>Welcome! Here’s a little bit about me and my journey.</p>
     </div>
 
-    <!-- About Me Content -->
-    <div class="about-container">
-      <div class="image-container">
-        <img src="@/assets/original.jpeg" alt="Profile Image" class="profile-image" />
-      </div>
-      <div class="about-info">
-        <h2>Who Am I?</h2>
-        <p>
-          I am a passionate developer with experience in frontend and backend technologies.
-          My expertise lies in building scalable applications and learning new technologies.
-        </p>
-        <p>
-          I specialize in Vue.js, JavaScript, DevOps, and Cybersecurity. 
-          My goal is to create user-friendly applications that solve real-world problems.
-        </p>
+    <!-- Timeline -->
+    <div class="timeline">
+      <div class="line"></div>
+      <div v-for="(job, index) in jobs" :key="index" class="timeline-item">
+        <div class="dot"></div>
+        <div class="job-info">
+          <h3>{{ job.title }}</h3>
+          <h4>{{ job.company }} ({{ job.date }})</h4>
+          <p>{{ job.description }}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -36,93 +31,118 @@
 <script>
 export default {
   name: "AboutMePage",
+  data() {
+    return {
+      jobs: [
+        {
+          title: "IT Analyst",
+          company: "M2PAY",
+          date: "Sep 2023 - Present",
+          description: "Developing front-end applications, software testing, and API integration. Acting as a connection between technical and non-technical stakeholders."
+        },
+        {
+          title: "Frontend Developer",
+          company: "Digital Assembly",
+          date: "Jun 2023 - Sep 2023",
+          description: "Developed responsive web applications with Vue.js, optimized performance, and collaborated with designers and back-end developers."
+        },
+        {
+          title: "IT Help Desk Technician",
+          company: "AKD d.o.o.",
+          date: "Jan 2023 - Jun 2023",
+          description: "Provided technical support, resolved software and network issues, configured systems, and ensured smooth IT operations."
+        }
+      ]
+    };
+  }
 };
 </script>
 
 <style scoped>
-/* About Me Page */
 .about-me {
   min-height: 100vh;
   padding: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
   background-color: rgba(0, 0, 0, 0.898);
 }
 
-/* Title with Icon */
 .title-with-icon {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-left: 125px;
 }
 
-/* Icon Styling */
 .about-icon {
   fill: #FFBF00;
   width: 50px;
   height: 50px;
 }
 
-/* Title Styling */
 h2 {
   font-size: 32px;
   color: #ffffff;
-  margin: 0;
-}
-
-/* Description */
-.description {
-  text-align: center;
-  margin-top: 10px;
 }
 
 .description p {
   font-size: 18px;
   color: #dddddd;
-  max-width: 600px;
+  text-align: center;
 }
 
-/* About Me Container */
-.about-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
+.timeline {
   margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 40px;
 }
 
-/* Image Styling */
-.image-container {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: black;
-}
-
-.profile-image {
-  width: 100%;
+.line {
+  position: absolute;
+  left: 62px; /* Adjust this if needed */
+  top: 0;
+  width: 2px;
   height: 100%;
-  object-fit: cover;
-  display: block;
+  background: white;
+  z-index: 1; /* Ensure it's behind the dots */
 }
 
-/* About Me Info */
-.about-info {
-  max-width: 600px;
+.dot {
+  width: 15px;
+  height: 15px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  left: 16px; /* Adjust to center the dot on the line */
+  z-index: 2;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 20px 0;
+}
+.job-info {
   color: white;
+  max-width: 600px;
+  margin-left: 40px;
 }
 
-.about-info h2 {
-  font-size: 28px;
-  margin-bottom: 10px;
+.job-info h3 {
+  font-size: 22px;
+  margin: 0;
 }
 
-.about-info p {
+.job-info h4 {
+  font-size: 18px;
+  margin: 5px 0;
+  color: #ffbf00;
+}
+
+.job-info p {
   font-size: 16px;
   color: gray;
   line-height: 1.5;
