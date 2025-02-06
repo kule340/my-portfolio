@@ -7,8 +7,7 @@
     <router-view></router-view>
 
     <!-- Hide this content when on /courses -->
-    <div v-if="$route.path !== '/courses'">
-      <!-- Main Section -->
+    <div v-if="$route.path !== '/courses' && $route.path !== '/about-me'"> 
       <div class="main-section">
         <div class="profile">
           <img src="./assets/original.jpeg" alt="Profile" class="profile-photo" />
@@ -29,7 +28,7 @@
             </svg>
             <span>LinkedIn Profile</span>
           </button>
-          <button class="btn">
+          <button class="btn" @click="openInstagram">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
               <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 3.75h9A3.75 3.75 0 0 1 21 7.5v9a3.75 3.75 0 0 1-3.75 3.75h-9A3.75 3.75 0 0 1 3.75 16.5v-9A3.75 3.75 0 0 1 7.5 3.75zm9 0V3m-9 0v.75m3.75 12a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5z"></path>
             </svg>
@@ -43,10 +42,10 @@
         <div class="contact-content">
           <h2>You can also find me here</h2>
           <div class="links">
-            <a href="https://twitter.com" target="_blank">Twitter</a>
-            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-            <a href="https://instagram.com" target="_blank">Instagram</a>
-            <a href="https://udemy.com" target="_blank">Udemy</a>
+            <a href="https://x.com/0middleman0" target="_blank">Twitter</a>
+            <a href="https://www.linkedin.com/in/markokucko/" target="_blank">LinkedIn</a>
+            <a href="https://www.instagram.com/marko_kucko/" target="_blank">Instagram</a>
+            <a href="https://www.udemy.com/user/marko-kucko/" target="_blank">Udemy</a>
           </div>
         </div>
       </div>
@@ -71,6 +70,11 @@ export default {
   components: {
     NavbarComponent,
   },
+  methods: {
+    openInstagram() {
+    window.open('https://www.instagram.com/marko_kucko/', '_blank');
+  }
+  }
 };
 </script>
 

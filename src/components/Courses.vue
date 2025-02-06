@@ -40,7 +40,7 @@
           <div class="course-info">
             <h2 class="course-title">{{ course.title }}</h2>
             <p class="course-description">{{ course.description }}</p>
-            <button class="enroll-button">Enroll Now</button>
+            <button class="enroll-button" @click="goToUdemy">Enroll Now</button>
           </div>
         </div>
       </template>
@@ -142,7 +142,12 @@ export default {
         return matchesSearch && matchesCategory;
       });
     }
+  },
+  methods:{
+    goToUdemy() {
+    window.open('https://www.udemy.com/user/marko-kucko/', '_blank');
   }
+  },
 };
 </script>
 
