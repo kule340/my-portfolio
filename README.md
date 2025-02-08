@@ -22,3 +22,8 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+for local testing:
+nvm version 0.39.3
+npm version 11.0.0
+node version v20.18.1
